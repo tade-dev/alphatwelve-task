@@ -1,6 +1,21 @@
 part of 'dashboard_cubit.dart';
 
-@immutable
-sealed class DashboardState {}
+@freezed
+class DashboardState with _$DashboardState {
 
-final class DashboardInitial extends DashboardState {}
+  const DashboardState._();
+
+  const factory DashboardState.initial({
+
+    @Default(0) int currentIndex
+
+  }) = _Initial;
+
+  List<Widget> get views => [
+    HomeV(),
+    CartV(),
+    FavoritesV(),
+    FavoritesV(),
+  ];
+
+}

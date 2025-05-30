@@ -9,6 +9,8 @@
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:alphatwelve_task/routes/route.dart' as _i3;
+import 'package:alphatwelve_task/ui/dashboard/cubit/dashboard_cubit.dart'
+    as _i4;
 import 'package:get_it/get_it.dart' as _i1;
 import 'package:injectable/injectable.dart' as _i2;
 
@@ -24,6 +26,7 @@ extension GetItInjectableX on _i1.GetIt {
       environmentFilter,
     );
     gh.lazySingleton<_i3.$AppRouter>(() => _i3.$AppRouter());
+    gh.lazySingleton<_i4.DashboardCubit>(() => _i4.DashboardCubit());
     return this;
   }
 }
