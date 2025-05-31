@@ -25,13 +25,16 @@ class DashboardCubit extends Cubit<DashboardState> {
       currentIndex: index
     ));
   }
-  
+  updateSelectedProduct(Product v) {
+    emit(state.copyWith(
+      selectedProduct: v
+    ));
+  }
   updateProductList() {
     emit(state.copyWith(
       productList: state.products.map((product)=> Product.fromJson(product)).toList()
     ));
   }
-
   searchTextChanged(v) {
     emit(state.copyWith(
       searchText: v

@@ -1,3 +1,4 @@
+import 'package:alphatwelve_task/core/di/injectable.dart';
 import 'package:alphatwelve_task/gen/fonts.gen.dart';
 import 'package:alphatwelve_task/ui/components/product.dart';
 import 'package:alphatwelve_task/ui/dashboard/cubit/dashboard_cubit.dart';
@@ -64,6 +65,9 @@ class HomeV extends StatelessWidget {
                                   title: product.title,
                                   image: product.image,
                                   price: product.price,
+                                  ontap: () {
+                                    si<DashboardCubit>().updateSelectedProduct(product);
+                                  },
                                 )
                                 .animate(
                                   delay: Duration(milliseconds: index * 100),

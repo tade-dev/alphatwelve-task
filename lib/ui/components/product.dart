@@ -8,12 +8,14 @@ class ProductV extends StatelessWidget {
   String image;
   String title;
   double price;
+  Function() ontap;
 
   ProductV({
     super.key,
     required this.image,
     required this.title,
     required this.price,
+    required this.ontap
   });
 
   @override
@@ -38,7 +40,7 @@ class ProductV extends StatelessWidget {
         ),
         SizedBox(height: 5,),
         Text(
-          "\$$price",
+          "\$${price.toStringAsFixed(2)}",
           style: getBoldStyle(
             color: ColorManager.text,
             fontSize: 16
