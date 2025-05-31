@@ -26,6 +26,8 @@ class DashboardV extends StatelessWidget {
               color: ColorManager.primary,
               fontSize: 12
             ),
+            selectedItemColor: ColorManager.primary,
+            unselectedItemColor: ColorManager.textAlt,
             unselectedLabelStyle: getMediumStyle(
               color: ColorManager.textAlt,
               fontSize: 12

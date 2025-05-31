@@ -34,16 +34,40 @@ class $AssetsIconsGen {
   /// File path: assets/icons/notification.svg
   String get notification => 'assets/icons/notification.svg';
 
+  /// File path: assets/icons/search.svg
+  String get search => 'assets/icons/search.svg';
+
   /// File path: assets/icons/user.svg
   String get user => 'assets/icons/user.svg';
 
   /// List of all assets
-  List<String> get values =>
-      [add, cart, delete, favourite, home, like, minus, notification, user];
+  List<String> get values => [
+        add,
+        cart,
+        delete,
+        favourite,
+        home,
+        like,
+        minus,
+        notification,
+        search,
+        user
+      ];
+}
+
+class $AssetsSvgGen {
+  const $AssetsSvgGen();
+
+  /// File path: assets/svg/Logo.svg
+  String get logo => 'assets/svg/Logo.svg';
+
+  /// List of all assets
+  List<String> get values => [logo];
 }
 
 class Assets {
   Assets._();
 
   static const $AssetsIconsGen icons = $AssetsIconsGen();
+  static const $AssetsSvgGen svg = $AssetsSvgGen();
 }

@@ -1,4 +1,5 @@
 import 'package:alphatwelve_task/core/di/injectable.dart';
+import 'package:alphatwelve_task/core/services/theme.dart';
 import 'package:alphatwelve_task/routes/route.gr.dart';
 import 'package:alphatwelve_task/ui/dashboard/cubit/dashboard_cubit.dart';
 import 'package:flutter/material.dart';
@@ -41,6 +42,7 @@ class _AppState extends State<App> {
       providers: providers,
       child: MaterialApp.router(
         title: "AlphaTwelve",
+        theme: themeData,
         routeInformationParser: appRouter.defaultRouteParser(),
         routerDelegate: appRouter.delegate(),
         debugShowCheckedModeBanner: false,
