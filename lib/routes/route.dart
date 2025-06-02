@@ -1,4 +1,5 @@
 import 'package:alphatwelve_task/ui/dashboard/dashboard_v.dart';
+import 'package:alphatwelve_task/ui/dashboard/home/product_details_v.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:injectable/injectable.dart';
@@ -8,6 +9,7 @@ import 'package:injectable/injectable.dart';
   transitionsBuilder: buildTransitions,
   routes: <CustomRoute>[
     CustomRoute(page: DashboardV, initial: true),
+    CustomRoute(page: ProductDetailsV),
   ]
 )
 

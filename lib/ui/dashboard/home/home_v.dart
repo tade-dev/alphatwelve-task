@@ -1,5 +1,6 @@
 import 'package:alphatwelve_task/core/di/injectable.dart';
 import 'package:alphatwelve_task/gen/fonts.gen.dart';
+import 'package:alphatwelve_task/routes/route.gr.dart';
 import 'package:alphatwelve_task/ui/components/product.dart';
 import 'package:alphatwelve_task/ui/dashboard/cubit/dashboard_cubit.dart';
 import 'package:alphatwelve_task/ui/widgets/build_app_bar.dart';
@@ -42,8 +43,20 @@ class HomeV extends StatelessWidget {
                               )
                             ),
                           ],
+                        )
+                        .animate()
+                        .slideX(
+                          begin: -0.5,
+                          duration: 700.ms,
+                          curve: Curves.easeOutCubic,
+                        )
+                        .fadeIn(
+                          duration: 600.ms,
+                          curve: Curves.easeOut,
                         ),
-                        SizedBox(height: 20,),
+                        
+                        SizedBox(height: 20),
+                        
                         BlocBuilder<DashboardCubit, DashboardState>(
                           builder: (context, state) {
                             final products = state.filteredProducts;
@@ -61,33 +74,81 @@ class HomeV extends StatelessWidget {
                               ),
                               itemBuilder: (context, index) {
                                 final product = products[index];
+                                final isEvenRow = (index ~/ 2) % 2 == 0;
+                                final isLeftColumn = index % 2 == 0;
+                                
                                 return ProductV(
                                   title: product.title,
                                   image: product.image,
                                   price: product.price,
                                   ontap: () {
                                     si<DashboardCubit>().updateSelectedProduct(product);
+                                    si<AppRouter>().push(ProductDetailsV());
                                   },
                                 )
                                 .animate(
-                                  delay: Duration(milliseconds: index * 100),
+                                  delay: Duration(milliseconds: 200 + (index * 150)),
                                 )
-                                .fadeIn(duration: 500.ms)
-                                .scale(
+                                .slideX(
+                                  begin: isLeftColumn ? -0.8 : 0.8,
+                                  duration: 600.ms,
+                                  curve: Curves.easeOutCubic,
+                                )
+                                .fadeIn(
                                   duration: 500.ms,
-                                  curve: Curves.easeOutBack,
-                                  begin: const Offset(0.95, 0.95),
+                                  curve: Curves.easeOut,
+                                )
+                                .scale(
+                                  duration: 700.ms,
+                                  curve: Curves.elasticOut,
+                                  begin: const Offset(0.7, 0.7),
                                   end: const Offset(1, 1),
+                                )
+                                .rotate(
+                                  begin: isEvenRow ? -0.02 : 0.02,
+                                  end: 0,
+                                  duration: 800.ms,
+                                  curve: Curves.easeOutBack,
+                                )
+                                .animate(
+                                  onComplete: (controller) => controller.repeat(reverse: true),
+                                )
+                                .shimmer(
+                                  duration: 2500.ms,
+                                  delay: Duration(milliseconds: 1000 + (index * 200)),
+                                  color: Colors.white.withOpacity(0.08),
+                                  angle: 45,
+                                )
+                                .animate(
+                                  target: 0,
+                                )
+                                .scaleXY(
+                                  begin: 1,
+                                  end: 1.05,
+                                  duration: 150.ms,
+                                  curve: Curves.easeInOut,
                                 );
                               },
                             );
                           },
                         )
+                        .animate(
+                          delay: 100.ms,
+                        )
+                        .fadeIn(
+                          duration: 800.ms,
+                          curve: Curves.easeOut,
+                        )
+                        .slideY(
+                          begin: 0.3,
+                          duration: 700.ms,
+                          curve: Curves.easeOutCubic,
+                        ),
                       ],
                     ),
                   ),
                 ),
-              )
+              ),
             )
           ],
         ),

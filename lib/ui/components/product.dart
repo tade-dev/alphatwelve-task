@@ -20,33 +20,36 @@ class ProductV extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Image.asset(
-          image,
-          fit: BoxFit.cover,
-          width: double.infinity,
-        ),
-        SizedBox(height: 8,),
-        Text(
-          title,
-          maxLines: 2,
-          overflow: TextOverflow.ellipsis,
-          style: getRegularStyle(
-            color: ColorManager.text,
-            fontSize: 14
+    return GestureDetector(
+      onTap: ontap,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Image.asset(
+            image,
+            fit: BoxFit.cover,
+            width: double.infinity,
           ),
-        ),
-        SizedBox(height: 5,),
-        Text(
-          "\$${price.toStringAsFixed(2)}",
-          style: getBoldStyle(
-            color: ColorManager.text,
-            fontSize: 16
+          SizedBox(height: 8,),
+          Text(
+            title,
+            maxLines: 2,
+            overflow: TextOverflow.ellipsis,
+            style: getRegularStyle(
+              color: ColorManager.text,
+              fontSize: 14
+            ),
           ),
-        ),
-      ],
+          SizedBox(height: 5,),
+          Text(
+            "\$${price.toStringAsFixed(2)}",
+            style: getBoldStyle(
+              color: ColorManager.text,
+              fontSize: 16
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
