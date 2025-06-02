@@ -27,7 +27,7 @@ class DashboardState with _$DashboardState {
 
   List<Map<String, dynamic>> get products => [
     {
-      "title": "Apple iPhone 16\n128GB|Teal",
+      "title": "Apple iPhone 16 128GB|Teal",
       "image": Assets.images.iphone.path,
       "price": 700.00,
       "description": [
@@ -37,7 +37,7 @@ class DashboardState with _$DashboardState {
       "availability": true,
     },
     {
-      "title": "M4 Macbook Air 13”\n256GB|Sky blue",
+      "title": "M4 Macbook Air 13” 256GB|Sky blue",
       "image": Assets.images.laptop.path,
       "price": 1000.00,
       "description": [
@@ -47,7 +47,7 @@ class DashboardState with _$DashboardState {
       "availability": true,
     },
     {
-      "title": "Google Pixel 9A\n128GB|Iris",
+      "title": "Google Pixel 9A 128GB|Iris",
       "image": Assets.images.pixel.path,
       "price": 499.00,
       "description": [
@@ -57,7 +57,7 @@ class DashboardState with _$DashboardState {
       "availability": true,
     },
     {
-      "title": "Apple Airpods 4\nActive Noise Cancellation",
+      "title": "Apple Airpods 4 Active Noise Cancellation",
       "image": Assets.images.pods.path,
       "price": 129.00,
       "description": [

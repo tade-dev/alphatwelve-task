@@ -14,6 +14,7 @@ class ColorManager {
   static const Color whiteAlt = Color(0xffF5F5F5);
   static const Color text = Color(0xff000000);
   static const Color background = Color(0xffFBFBFB);
+  static const Color card = Color(0xffF6F5F8);
   static const Color light = Color(0xffCBD5E1);
   static const Color textAlt = Color(0xff49454F);
   static const Color icon = Color(0xff64748B);
