@@ -17,19 +17,21 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$FavoritesState {
   List<Product> get favorites => throw _privateConstructorUsedError;
+  String get searchText => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(List<Product> favorites) initial,
+    required TResult Function(List<Product> favorites, String searchText)
+        initial,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(List<Product> favorites)? initial,
+    TResult? Function(List<Product> favorites, String searchText)? initial,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(List<Product> favorites)? initial,
+    TResult Function(List<Product> favorites, String searchText)? initial,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -61,7 +63,7 @@ abstract class $FavoritesStateCopyWith<$Res> {
           FavoritesState value, $Res Function(FavoritesState) then) =
       _$FavoritesStateCopyWithImpl<$Res, FavoritesState>;
   @useResult
-  $Res call({List<Product> favorites});
+  $Res call({List<Product> favorites, String searchText});
 }
 
 /// @nodoc
@@ -78,12 +80,17 @@ class _$FavoritesStateCopyWithImpl<$Res, $Val extends FavoritesState>
   @override
   $Res call({
     Object? favorites = null,
+    Object? searchText = null,
   }) {
     return _then(_value.copyWith(
       favorites: null == favorites
           ? _value.favorites
           : favorites // ignore: cast_nullable_to_non_nullable
               as List<Product>,
+      searchText: null == searchText
+          ? _value.searchText
+          : searchText // ignore: cast_nullable_to_non_nullable
+              as String,
     ) as $Val);
   }
 }
@@ -96,7 +103,7 @@ abstract class _$$InitialImplCopyWith<$Res>
       __$$InitialImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<Product> favorites});
+  $Res call({List<Product> favorites, String searchText});
 }
 
 /// @nodoc
@@ -111,12 +118,17 @@ class __$$InitialImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? favorites = null,
+    Object? searchText = null,
   }) {
     return _then(_$InitialImpl(
       favorites: null == favorites
           ? _value._favorites
           : favorites // ignore: cast_nullable_to_non_nullable
               as List<Product>,
+      searchText: null == searchText
+          ? _value.searchText
+          : searchText // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -124,7 +136,8 @@ class __$$InitialImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$InitialImpl extends _Initial {
-  const _$InitialImpl({final List<Product> favorites = const []})
+  const _$InitialImpl(
+      {final List<Product> favorites = const [], this.searchText = ""})
       : _favorites = favorites,
         super._();
 
@@ -138,8 +151,12 @@ class _$InitialImpl extends _Initial {
   }
 
   @override
+  @JsonKey()
+  final String searchText;
+
+  @override
   String toString() {
-    return 'FavoritesState.initial(favorites: $favorites)';
+    return 'FavoritesState.initial(favorites: $favorites, searchText: $searchText)';
   }
 
   @override
@@ -148,12 +165,14 @@ class _$InitialImpl extends _Initial {
         (other.runtimeType == runtimeType &&
             other is _$InitialImpl &&
             const DeepCollectionEquality()
-                .equals(other._favorites, _favorites));
+                .equals(other._favorites, _favorites) &&
+            (identical(other.searchText, searchText) ||
+                other.searchText == searchText));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_favorites));
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(_favorites), searchText);
 
   @JsonKey(ignore: true)
   @override
@@ -164,27 +183,28 @@ class _$InitialImpl extends _Initial {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(List<Product> favorites) initial,
+    required TResult Function(List<Product> favorites, String searchText)
+        initial,
   }) {
-    return initial(favorites);
+    return initial(favorites, searchText);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(List<Product> favorites)? initial,
+    TResult? Function(List<Product> favorites, String searchText)? initial,
   }) {
-    return initial?.call(favorites);
+    return initial?.call(favorites, searchText);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(List<Product> favorites)? initial,
+    TResult Function(List<Product> favorites, String searchText)? initial,
     required TResult orElse(),
   }) {
     if (initial != null) {
-      return initial(favorites);
+      return initial(favorites, searchText);
     }
     return orElse();
   }
@@ -219,11 +239,14 @@ class _$InitialImpl extends _Initial {
 }
 
 abstract class _Initial extends FavoritesState {
-  const factory _Initial({final List<Product> favorites}) = _$InitialImpl;
+  const factory _Initial(
+      {final List<Product> favorites, final String searchText}) = _$InitialImpl;
   const _Initial._() : super._();
 
   @override
   List<Product> get favorites;
+  @override
+  String get searchText;
   @override
   @JsonKey(ignore: true)
   _$$InitialImplCopyWith<_$InitialImpl> get copyWith =>

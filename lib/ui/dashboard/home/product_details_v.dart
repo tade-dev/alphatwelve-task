@@ -2,6 +2,7 @@ import 'package:alphatwelve_task/core/di/injectable.dart';
 import 'package:alphatwelve_task/core/resources/colors.dart';
 import 'package:alphatwelve_task/core/resources/styles.dart';
 import 'package:alphatwelve_task/features/cart/cubit/cart_cubit.dart';
+import 'package:alphatwelve_task/features/favorites/cubit/favorites_cubit.dart';
 import 'package:alphatwelve_task/gen/assets.gen.dart';
 import 'package:alphatwelve_task/routes/route.gr.dart';
 import 'package:alphatwelve_task/ui/dashboard/cubit/dashboard_cubit.dart';
@@ -17,7 +18,10 @@ class ProductDetailsV extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     var screenH = MediaQuery.sizeOf(context).height;
+    var favouriteCubit = si<FavoritesCubit>();
+
     return Scaffold(
       bottomNavigationBar: BlocBuilder<CartCubit, CartState>(
         builder: (context, state) {
@@ -66,18 +70,35 @@ class ProductDetailsV extends StatelessWidget {
                             ),
                             Positioned(
                               right: 0,
-                              child: Padding(
-                                padding: const EdgeInsets.only(top: 15, right: 15),
-                                child: GestureDetector(
-                                  onTap: (){},
-                                  child: CircleAvatar(
-                                    radius: 22,
-                                    backgroundColor: ColorManager.white,
-                                    child: SvgPicture.asset(
-                                      Assets.icons.favourite
+                              child: BlocBuilder<FavoritesCubit, FavoritesState>(
+                                builder: (context, fState) {
+                                  return Padding(
+                                    padding: const EdgeInsets.only(top: 15, right: 15),
+                                    child: GestureDetector(
+                                      onTap: (){
+                                        if (fState.isFavorite(state.selectedProduct!)) {
+                                          favouriteCubit.removeFromFavorites(
+                                            state.selectedProduct!,
+                                          );
+                                        } else {
+                                          favouriteCubit.addToFavorites(
+                                            state.selectedProduct!,
+                                          );
+                                        }
+                                      },
+                                      child: CircleAvatar(
+                                        radius: 22,
+                                        backgroundColor: ColorManager.white,
+                                        child: SvgPicture.asset(
+                                          fState.isFavorite(state.selectedProduct!)
+                                          ? Assets.icons.like
+                                          :
+                                          Assets.icons.favourite
+                                        ),
+                                      ),
                                     ),
-                                  ),
-                                ),
+                                  );
+                                },
                               ),
                             )
                           ],

@@ -18,6 +18,7 @@ buildAppBar({
   required String address,
   Widget? leading,
   Function()? onback,
+  Function(String)? onChanged,
 }) {
   return Stack(
     children: [
@@ -61,7 +62,8 @@ buildAppBar({
                       child: BlocBuilder<DashboardCubit, DashboardState>(
                         builder: (context, state) {
                           return BuildInputFiled(
-                            onChanged: (v) {
+                            onChanged: onChanged ??
+                            (v) {
                               si<DashboardCubit>().searchTextChanged(v);
                             },
                             prefixIcon: SvgPicture.asset(
