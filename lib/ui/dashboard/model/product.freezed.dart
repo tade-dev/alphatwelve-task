@@ -26,6 +26,7 @@ mixin _$Product {
   int get quantity => throw _privateConstructorUsedError;
   List<String> get description => throw _privateConstructorUsedError;
   bool get availability => throw _privateConstructorUsedError;
+  bool? get isLiked => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -43,7 +44,8 @@ abstract class $ProductCopyWith<$Res> {
       double price,
       int quantity,
       List<String> description,
-      bool availability});
+      bool availability,
+      bool? isLiked});
 }
 
 /// @nodoc
@@ -65,6 +67,7 @@ class _$ProductCopyWithImpl<$Res, $Val extends Product>
     Object? quantity = null,
     Object? description = null,
     Object? availability = null,
+    Object? isLiked = freezed,
   }) {
     return _then(_value.copyWith(
       title: null == title
@@ -91,6 +94,10 @@ class _$ProductCopyWithImpl<$Res, $Val extends Product>
           ? _value.availability
           : availability // ignore: cast_nullable_to_non_nullable
               as bool,
+      isLiked: freezed == isLiked
+          ? _value.isLiked
+          : isLiked // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ) as $Val);
   }
 }
@@ -108,7 +115,8 @@ abstract class _$$ProductImplCopyWith<$Res> implements $ProductCopyWith<$Res> {
       double price,
       int quantity,
       List<String> description,
-      bool availability});
+      bool availability,
+      bool? isLiked});
 }
 
 /// @nodoc
@@ -128,6 +136,7 @@ class __$$ProductImplCopyWithImpl<$Res>
     Object? quantity = null,
     Object? description = null,
     Object? availability = null,
+    Object? isLiked = freezed,
   }) {
     return _then(_$ProductImpl(
       title: null == title
@@ -154,6 +163,10 @@ class __$$ProductImplCopyWithImpl<$Res>
           ? _value.availability
           : availability // ignore: cast_nullable_to_non_nullable
               as bool,
+      isLiked: freezed == isLiked
+          ? _value.isLiked
+          : isLiked // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ));
   }
 }
@@ -167,7 +180,8 @@ class _$ProductImpl implements _Product {
       required this.price,
       required this.quantity,
       required final List<String> description,
-      required this.availability})
+      required this.availability,
+      this.isLiked})
       : _description = description;
 
   factory _$ProductImpl.fromJson(Map<String, dynamic> json) =>
@@ -191,10 +205,12 @@ class _$ProductImpl implements _Product {
 
   @override
   final bool availability;
+  @override
+  final bool? isLiked;
 
   @override
   String toString() {
-    return 'Product(title: $title, image: $image, price: $price, quantity: $quantity, description: $description, availability: $availability)';
+    return 'Product(title: $title, image: $image, price: $price, quantity: $quantity, description: $description, availability: $availability, isLiked: $isLiked)';
   }
 
   @override
@@ -210,13 +226,14 @@ class _$ProductImpl implements _Product {
             const DeepCollectionEquality()
                 .equals(other._description, _description) &&
             (identical(other.availability, availability) ||
-                other.availability == availability));
+                other.availability == availability) &&
+            (identical(other.isLiked, isLiked) || other.isLiked == isLiked));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, title, image, price, quantity,
-      const DeepCollectionEquality().hash(_description), availability);
+      const DeepCollectionEquality().hash(_description), availability, isLiked);
 
   @JsonKey(ignore: true)
   @override
@@ -239,7 +256,8 @@ abstract class _Product implements Product {
       required final double price,
       required final int quantity,
       required final List<String> description,
-      required final bool availability}) = _$ProductImpl;
+      required final bool availability,
+      final bool? isLiked}) = _$ProductImpl;
 
   factory _Product.fromJson(Map<String, dynamic> json) = _$ProductImpl.fromJson;
 
@@ -255,6 +273,8 @@ abstract class _Product implements Product {
   List<String> get description;
   @override
   bool get availability;
+  @override
+  bool? get isLiked;
   @override
   @JsonKey(ignore: true)
   _$$ProductImplCopyWith<_$ProductImpl> get copyWith =>

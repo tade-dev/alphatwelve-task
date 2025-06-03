@@ -36,6 +36,7 @@ class DashboardState with _$DashboardState {
         "There will be no visible cosmetic imperfections when held at an arm’s length. There will be no visible cosmetic imperfections when held at an arm’s length.",
       ],
       "availability": true,
+      "isLiked": false
     },
     {
       "title": "M4 Macbook Air 13” 256GB|Sky blue",
@@ -47,6 +48,7 @@ class DashboardState with _$DashboardState {
         "There will be no visible cosmetic imperfections when held at an arm’s length. There will be no visible cosmetic imperfections when held at an arm’s length.",
       ],
       "availability": true,
+      "isLiked": false
     },
     {
       "title": "Google Pixel 9A 128GB|Iris",
@@ -58,6 +60,7 @@ class DashboardState with _$DashboardState {
         "There will be no visible cosmetic imperfections when held at an arm’s length. There will be no visible cosmetic imperfections when held at an arm’s length.",
       ],
       "availability": true,
+      "isLiked": false
     },
     {
       "title": "Apple Airpods 4 Active Noise Cancellation",
@@ -69,6 +72,7 @@ class DashboardState with _$DashboardState {
         "There will be no visible cosmetic imperfections when held at an arm’s length. There will be no visible cosmetic imperfections when held at an arm’s length.",
       ],
       "availability": true,
+      "isLiked": false
     },
   ];
 

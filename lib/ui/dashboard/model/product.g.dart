@@ -16,6 +16,7 @@ _$ProductImpl _$$ProductImplFromJson(Map<String, dynamic> json) =>
           .map((e) => e as String)
           .toList(),
       availability: json['availability'] as bool,
+      isLiked: json['isLiked'] as bool?,
     );
 
 Map<String, dynamic> _$$ProductImplToJson(_$ProductImpl instance) =>
@@ -26,4 +27,5 @@ Map<String, dynamic> _$$ProductImplToJson(_$ProductImpl instance) =>
       'quantity': instance.quantity,
       'description': instance.description,
       'availability': instance.availability,
+      'isLiked': instance.isLiked,
     };

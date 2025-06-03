@@ -21,6 +21,7 @@ class Product with _$Product {
         required int quantity,
         required List<String> description,
         required bool availability,
+        bool? isLiked,
     }) = _Product;
 
     factory Product.fromJson(Map<String, dynamic> json) => _$ProductFromJson(json);

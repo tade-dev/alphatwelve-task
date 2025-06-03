@@ -2,6 +2,7 @@ import 'package:alphatwelve_task/core/di/injectable.dart';
 import 'package:alphatwelve_task/core/resources/colors.dart';
 import 'package:alphatwelve_task/core/resources/styles.dart';
 import 'package:alphatwelve_task/features/cart/cubit/cart_cubit.dart';
+import 'package:alphatwelve_task/gen/assets.gen.dart';
 import 'package:alphatwelve_task/routes/route.gr.dart';
 import 'package:alphatwelve_task/ui/dashboard/cubit/dashboard_cubit.dart';
 import 'package:alphatwelve_task/ui/widgets/build_app_bar.dart';
@@ -9,6 +10,7 @@ import 'package:alphatwelve_task/ui/widgets/built_btn.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class ProductDetailsV extends StatelessWidget {
   const ProductDetailsV({super.key});
@@ -54,19 +56,39 @@ class ProductDetailsV extends StatelessWidget {
                     child: ListView(
                       padding: EdgeInsets.only(top: 10, left: 20, right: 20),
                       children: [
-                        Image.asset(
+                        Stack(
+                          children: [
+                            Image.asset(
                               state.selectedProduct?.image ?? '',
                               height: screenH * 0.4,
                               width: double.infinity,
                               fit: BoxFit.cover,
-                            )
-                            .animate()
-                            .fadeIn(duration: 600.ms, curve: Curves.easeOut)
-                            .scale(
-                              begin: const Offset(0.8, 0.8),
-                              duration: 600.ms,
-                              curve: Curves.easeOut,
                             ),
+                            Positioned(
+                              right: 0,
+                              child: Padding(
+                                padding: const EdgeInsets.only(top: 15, right: 15),
+                                child: GestureDetector(
+                                  onTap: (){},
+                                  child: CircleAvatar(
+                                    radius: 22,
+                                    backgroundColor: ColorManager.white,
+                                    child: SvgPicture.asset(
+                                      Assets.icons.favourite
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            )
+                          ],
+                        )
+                        .animate()
+                        .fadeIn(duration: 600.ms, curve: Curves.easeOut)
+                        .scale(
+                          begin: const Offset(0.8, 0.8),
+                          duration: 600.ms,
+                          curve: Curves.easeOut,
+                        ),
 
                         SizedBox(height: 10),
 

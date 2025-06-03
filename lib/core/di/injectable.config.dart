@@ -9,6 +9,8 @@
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:alphatwelve_task/features/cart/cubit/cart_cubit.dart' as _i4;
+import 'package:alphatwelve_task/features/favorites/cubit/favorites_cubit.dart'
+    as _i6;
 import 'package:alphatwelve_task/routes/route.dart' as _i3;
 import 'package:alphatwelve_task/ui/dashboard/cubit/dashboard_cubit.dart'
     as _i5;
@@ -29,6 +31,7 @@ extension GetItInjectableX on _i1.GetIt {
     gh.lazySingleton<_i3.$AppRouter>(() => _i3.$AppRouter());
     gh.lazySingleton<_i4.CartCubit>(() => _i4.CartCubit());
     gh.lazySingleton<_i5.DashboardCubit>(() => _i5.DashboardCubit());
+    gh.lazySingleton<_i6.FavoritesCubit>(() => _i6.FavoritesCubit());
     return this;
   }
 }

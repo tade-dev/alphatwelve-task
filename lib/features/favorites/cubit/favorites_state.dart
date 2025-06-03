@@ -1,6 +1,13 @@
 part of 'favorites_cubit.dart';
 
-@immutable
-sealed class FavoritesState {}
+@freezed
+class FavoritesState with _$FavoritesState {
 
-final class FavoritesInitial extends FavoritesState {}
+  const FavoritesState._();
+  const factory FavoritesState.initial({
+
+    @Default([]) List<Product> favorites
+    
+  }) = _Initial;
+
+}
