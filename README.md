@@ -36,15 +36,15 @@ flutter run
 ## 📸 Screenshots
 
 ### Product Listing Screen
-![Product Listing](https://raw.githubusercontent.com/tade-dev/alphatwelve-task/main/assets/screenshots/product-listings.png)
+![Product Listing](https://raw.githubusercontent.com/tade-dev/alphatwelve-task/dev/assets/screenshots/product-listings.png)
 *Product grid with categories and search functionality*
 
 ### Product Details Screen
-![Product Details](https://raw.githubusercontent.com/tade-dev/alphatwelve-task/main/assets/screenshots/product-details.png)
+![Product Details](https://raw.githubusercontent.com/tade-dev/alphatwelve-task/dev/assets/screenshots/product-details.png)
 *Detailed product view with add to cart feature*
 
 ### Shopping Cart Screen
-![Shopping Cart](https://raw.githubusercontent.com/tade-dev/alphatwelve-task/main/assets/screenshots/cart-screen.png)
+![Shopping Cart](https://raw.githubusercontent.com/tade-dev/alphatwelve-task/dev/assets/screenshots/cart-screen.png)
 *Cart management with quantity controls and total calculation*
 
 ## 👨‍💻 Developer
