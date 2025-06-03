@@ -11,6 +11,7 @@ class BuildBtn extends StatelessWidget {
   final Color? textColor;
   final double? width;
   final double? height;
+  final bool disabled;
 
   BuildBtn({
     super.key,
@@ -20,6 +21,7 @@ class BuildBtn extends StatelessWidget {
     this.textColor,
     this.width,
     this.height,
+    this.disabled = false,
   });
 
   @override
@@ -28,9 +30,13 @@ class BuildBtn extends StatelessWidget {
       height: height ?? 50,
       width: width ?? double.infinity,
       child: ElevatedButton(
-        onPressed: onPressed, 
+        onPressed: disabled ?
+        null : 
+        onPressed, 
         style: ElevatedButton.styleFrom(
           elevation: 0,
+          disabledBackgroundColor: ColorManager.disable,
+          disabledForegroundColor: ColorManager.icon,
           backgroundColor: color ?? ColorManager.primary,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(8),

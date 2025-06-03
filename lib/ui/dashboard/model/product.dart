@@ -18,6 +18,7 @@ class Product with _$Product {
         required String title,
         required String image,
         required double price,
+        required int quantity,
         required List<String> description,
         required bool availability,
     }) = _Product;

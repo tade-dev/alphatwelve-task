@@ -1,5 +1,6 @@
 import 'package:alphatwelve_task/core/di/injectable.dart';
 import 'package:alphatwelve_task/core/services/theme.dart';
+import 'package:alphatwelve_task/features/cart/cubit/cart_cubit.dart';
 import 'package:alphatwelve_task/routes/route.gr.dart';
 import 'package:alphatwelve_task/ui/dashboard/cubit/dashboard_cubit.dart';
 import 'package:flutter/material.dart';
@@ -18,6 +19,7 @@ class _AppState extends State<App> {
 
   late AppRouter appRouter;
   late DashboardCubit dashboardCubit;
+  late CartCubit cartCubit;
 
   @override
   void initState() {
@@ -25,6 +27,7 @@ class _AppState extends State<App> {
 
     appRouter = si<AppRouter>();
     dashboardCubit = si<DashboardCubit>();
+    cartCubit = si<CartCubit>();
 
   }
 
@@ -33,6 +36,7 @@ class _AppState extends State<App> {
     super.dispose();
 
     dashboardCubit.close();
+    cartCubit.close();
 
   }
 
@@ -72,7 +76,8 @@ class _AppState extends State<App> {
 
   List<SingleChildWidget> get providers {
     return [
-      BlocProvider<DashboardCubit>.value(value: dashboardCubit)
+      BlocProvider<DashboardCubit>.value(value: dashboardCubit),
+      BlocProvider<CartCubit>.value(value: cartCubit)
     ];
   } 
 

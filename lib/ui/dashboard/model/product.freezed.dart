@@ -23,6 +23,7 @@ mixin _$Product {
   String get title => throw _privateConstructorUsedError;
   String get image => throw _privateConstructorUsedError;
   double get price => throw _privateConstructorUsedError;
+  int get quantity => throw _privateConstructorUsedError;
   List<String> get description => throw _privateConstructorUsedError;
   bool get availability => throw _privateConstructorUsedError;
 
@@ -40,6 +41,7 @@ abstract class $ProductCopyWith<$Res> {
       {String title,
       String image,
       double price,
+      int quantity,
       List<String> description,
       bool availability});
 }
@@ -60,6 +62,7 @@ class _$ProductCopyWithImpl<$Res, $Val extends Product>
     Object? title = null,
     Object? image = null,
     Object? price = null,
+    Object? quantity = null,
     Object? description = null,
     Object? availability = null,
   }) {
@@ -76,6 +79,10 @@ class _$ProductCopyWithImpl<$Res, $Val extends Product>
           ? _value.price
           : price // ignore: cast_nullable_to_non_nullable
               as double,
+      quantity: null == quantity
+          ? _value.quantity
+          : quantity // ignore: cast_nullable_to_non_nullable
+              as int,
       description: null == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
@@ -99,6 +106,7 @@ abstract class _$$ProductImplCopyWith<$Res> implements $ProductCopyWith<$Res> {
       {String title,
       String image,
       double price,
+      int quantity,
       List<String> description,
       bool availability});
 }
@@ -117,6 +125,7 @@ class __$$ProductImplCopyWithImpl<$Res>
     Object? title = null,
     Object? image = null,
     Object? price = null,
+    Object? quantity = null,
     Object? description = null,
     Object? availability = null,
   }) {
@@ -133,6 +142,10 @@ class __$$ProductImplCopyWithImpl<$Res>
           ? _value.price
           : price // ignore: cast_nullable_to_non_nullable
               as double,
+      quantity: null == quantity
+          ? _value.quantity
+          : quantity // ignore: cast_nullable_to_non_nullable
+              as int,
       description: null == description
           ? _value._description
           : description // ignore: cast_nullable_to_non_nullable
@@ -152,6 +165,7 @@ class _$ProductImpl implements _Product {
       {required this.title,
       required this.image,
       required this.price,
+      required this.quantity,
       required final List<String> description,
       required this.availability})
       : _description = description;
@@ -165,6 +179,8 @@ class _$ProductImpl implements _Product {
   final String image;
   @override
   final double price;
+  @override
+  final int quantity;
   final List<String> _description;
   @override
   List<String> get description {
@@ -178,7 +194,7 @@ class _$ProductImpl implements _Product {
 
   @override
   String toString() {
-    return 'Product(title: $title, image: $image, price: $price, description: $description, availability: $availability)';
+    return 'Product(title: $title, image: $image, price: $price, quantity: $quantity, description: $description, availability: $availability)';
   }
 
   @override
@@ -189,6 +205,8 @@ class _$ProductImpl implements _Product {
             (identical(other.title, title) || other.title == title) &&
             (identical(other.image, image) || other.image == image) &&
             (identical(other.price, price) || other.price == price) &&
+            (identical(other.quantity, quantity) ||
+                other.quantity == quantity) &&
             const DeepCollectionEquality()
                 .equals(other._description, _description) &&
             (identical(other.availability, availability) ||
@@ -197,7 +215,7 @@ class _$ProductImpl implements _Product {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, title, image, price,
+  int get hashCode => Object.hash(runtimeType, title, image, price, quantity,
       const DeepCollectionEquality().hash(_description), availability);
 
   @JsonKey(ignore: true)
@@ -219,6 +237,7 @@ abstract class _Product implements Product {
       {required final String title,
       required final String image,
       required final double price,
+      required final int quantity,
       required final List<String> description,
       required final bool availability}) = _$ProductImpl;
 
@@ -230,6 +249,8 @@ abstract class _Product implements Product {
   String get image;
   @override
   double get price;
+  @override
+  int get quantity;
   @override
   List<String> get description;
   @override
