@@ -18,7 +18,7 @@ class DashboardState with _$DashboardState {
     HomeV(),
     CartV(),
     FavoritesV(),
-    FavoritesV(),
+    ProfileV(),
   ];
 
   List<Product> get filteredProducts => (searchText.isEmpty) ? 

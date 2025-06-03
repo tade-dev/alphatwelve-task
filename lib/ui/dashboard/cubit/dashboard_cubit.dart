@@ -1,5 +1,6 @@
 import 'package:alphatwelve_task/features/cart/presentation/views/cart_v.dart';
 import 'package:alphatwelve_task/features/favorites/presentation/view/favorites_v.dart';
+import 'package:alphatwelve_task/features/profile/profile_v.dart';
 import 'package:alphatwelve_task/gen/assets.gen.dart';
 import 'package:alphatwelve_task/ui/dashboard/home/home_v.dart';
 import 'package:alphatwelve_task/ui/dashboard/model/product.dart';
