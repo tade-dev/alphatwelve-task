@@ -18,7 +18,7 @@ MiniMart is a three-screen mobile application that converts a Figma design into 
 1. **Clone the repository**
    ```bash
    git clone https://github.com/tade-dev/alphatwelve-task.git
-   cd alphatwelve_task
+   cd alphatwelve-task
    ```
 
 2. **Platform-specific setup**
@@ -36,15 +36,15 @@ flutter run
 ## 📸 Screenshots
 
 ### Product Listing Screen
-![Product Listing](./screenshots/product-listing.png)
+![Product Listing](https://raw.githubusercontent.com/tade-dev/alphatwelve-task/main/assets/screenshots/product-listings.png)
 *Product grid with categories and search functionality*
 
 ### Product Details Screen
-![Product Details](./screenshots/product-details.png)
+![Product Details](https://raw.githubusercontent.com/tade-dev/alphatwelve-task/main/assets/screenshots/product-details.png)
 *Detailed product view with add to cart feature*
 
 ### Shopping Cart Screen
-![Shopping Cart](./screenshots/shopping-cart.png)
+![Shopping Cart](https://raw.githubusercontent.com/tade-dev/alphatwelve-task/main/assets/screenshots/cart-screen.png)
 *Cart management with quantity controls and total calculation*
 
 ## 👨‍💻 Developer
