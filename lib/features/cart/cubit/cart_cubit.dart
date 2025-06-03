@@ -1,4 +1,6 @@
 import 'package:alphatwelve_task/core/di/injectable.dart';
+import 'package:alphatwelve_task/core/utils/toast/toast_manager.dart';
+import 'package:alphatwelve_task/routes/route.gr.dart';
 import 'package:alphatwelve_task/ui/dashboard/cubit/dashboard_cubit.dart';
 import 'package:alphatwelve_task/ui/dashboard/model/product.dart';
 import 'package:bloc/bloc.dart';
@@ -22,6 +24,12 @@ class CartCubit extends Cubit<CartState> {
       totalPrice: updatedTotalPrice,
       itemCount: updatedItemCount,
     ));
+
+    ToastManager.showSuccess(
+      si<AppRouter>().navigatorKey.currentContext!, 
+      "Item has been added to cart"
+    );
+
   }
 
   void removeFromCart(Product product) {
@@ -34,6 +42,11 @@ class CartCubit extends Cubit<CartState> {
       totalPrice: updatedTotalPrice,
       itemCount: updatedItemCount,
     ));
+
+    ToastManager.showSuccess(
+      si<AppRouter>().navigatorKey.currentContext!, 
+      "Item has been removed from cart"
+    );
 
   }
 

@@ -82,8 +82,14 @@ class $AssetsSvgGen {
   /// File path: assets/svg/Logo.svg
   String get logo => 'assets/svg/Logo.svg';
 
+  /// File path: assets/svg/check-circle.svg
+  String get checkCircle => 'assets/svg/check-circle.svg';
+
+  /// File path: assets/svg/close.svg
+  String get close => 'assets/svg/close.svg';
+
   /// List of all assets
-  List<String> get values => [logo];
+  List<String> get values => [logo, checkCircle, close];
 }
 
 class Assets {

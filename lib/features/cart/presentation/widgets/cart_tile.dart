@@ -41,7 +41,7 @@ class CartTile extends StatelessWidget {
           child: Row(
             children: [
               Image.asset(image, height: 100, width: 100, fit: BoxFit.cover),
-              SizedBox(width: 5),
+              SizedBox(width: 10),
               Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
